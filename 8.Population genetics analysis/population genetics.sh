@@ -2,7 +2,7 @@
 
 gcta --bfile b --autosome --make-grm --out grm
 
-gcta --grm grm --pca 3 --out out_pca
+gcta --grm grm --pca 2 --out out_pca
 
 #NJ tree
 
