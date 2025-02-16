@@ -1,6 +1,6 @@
 #Telomeres
 
-tidk find -w 100000 genome.fa -o file
+tidk find -w 100000 -c Artiodactyla genome.fa -o file.tsv --dir ./
 
 #Centromeres
 
