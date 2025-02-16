@@ -1,0 +1,37 @@
+#CUT&tag
+
+bowtie2-build --threads 8 $i.fa $i_index
+
+bowtie2 --end-to-end --very-sensitive --no-mixed \
+	--no-discordant --phred33 -I 10 -X 700 -p 20 \
+	-x $i_index -1 read_1.clean.fq.gz -2 read_2.clean.fq.gz \
+	-S $i.sam
+
+samtools view -bS -F 0x04 $i.sam > $i.bam
+
+samtools index -@ 10 -b $i.bam
+
+samtools sort -O bam -@ 10 -o $i.sort.bam $i.bam
+
+samtools index -@ 10 -b $i.sort.bam
+
+samtools flagstat $i.sort.bam > $i.sort.stat
+
+picard MarkDuplicates REMOVE_DUPLICATES=true I=$i.sort.bam O=$i.rmdup.bam M=$i.rmdup.log
+
+samtools index $i.rmdup.bam
+
+samtools flagstat $i.rmdup.bam > $i.rmdup.stat
+
+samtools view -h -b -q 30 $i.rmdup.bam | samtools sort -O bam -o  $i.last.bam
+
+samtools index $i.last.bam
+
+samtools flagstat $i.last.bam > $i.last.stat
+
+bedtools bamtobed -i $i.last.bam > $i.last.bed
+
+macs2 callpeak -f BED -t $i.last.bed -g genome_size -q 0.05 --nomodel --extsize 150 -B --keep-dup=all -n $i --call-summits
+
+
+
