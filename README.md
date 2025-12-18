@@ -1,2 +1,2 @@
 # T2T_Pig
-The code is continuously being updated...
+These scripts are used for T2T pig genome analysis.
