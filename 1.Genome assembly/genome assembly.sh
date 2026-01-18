@@ -15,7 +15,7 @@ partition --pairsfile group.clean.pairs.txt --contigfile group.clean.counts_GATC
 allhic build group.fasta
 allhic optimize group1.txt group.clean.clm
 
-Note: Although the commands below are functional, we now generally recommend using **YaHS** for chromosome-scale scaffolding/anchoring, as it tends to be more robust and easier to tune across datasets.
+Note: We now generally recommend using **YaHS** for chromosome-scale scaffolding/anchoring, as it tends to be more robust and easier to tune across datasets.
 
 #Gap filling
 
