@@ -9,6 +9,8 @@ svmu $pre.flt.delta $ref $query h null $pre
 #SYRI
 syri -c $pre.flt.coords -r $ref -q $qry -d $pre.flt.delta
 
+Note: While `svmu` and `SyRI` are both supported here for SV discovery, we now generally recommend **svim-asm** as the default for assembly-based structural variant calling, due to better maintenance and more consistent performance across datasets.
+
 #Reads alignment
 
 bwa mem -k 32 -w 10 -B 3 -O 11 -E 4 -t 10 -R "@RG\tID:foo_lane\tPL:illumina\tLB:library\tSM:sample" genome.fasta read_1.fq.gz read_2.fq.gz | samtools view -S -b - > sample.bam
