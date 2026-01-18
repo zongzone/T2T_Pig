@@ -1,6 +1,6 @@
 #Contig assembly
 
-hifiasm -o minzhu -t 30 --ul ONT.reads --h1 hic.reads1 --h2 hic.reads2 HiFi.reads
+hifiasm -o pig -t 30 --ul ONT.reads --h1 hic.reads1 --h2 hic.reads2 HiFi.reads
 
 Note: Removing the Hi-C reads typically yields the smallest number of contigs (i.e., a less fragmented contig set), whereas including Hi-C reads often increases the contig N50 and produces longer contigs overall.
 
