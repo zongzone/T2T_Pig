@@ -4,7 +4,7 @@
 
 This repository provides scripts that were developed, tested, and used in our published study:  
 **“Two telomere-to-telomere pig genome assemblies and pan-genome analyses provide insights into genomic structural landscape and genetic adaptations”** (*iMeta*, 2025).  
-The study covers telomere-to-telomere (T2T) genome assembly, pan-genome analysis, and multi-omics integration, and the workflows here were applied to produce and validate key results. The code is therefore shared as a practical, reusable reference that has been verified on real datasets.
+The study covers telomere-to-telomere (T2T) genome assembly, pan-genome analysis, and multi-omics integration, and the workflows here were applied to produce and validate key results.
 
 I treat genome assembly as an iterative engineering process rather than a one-size-fits-all recipe. For HiFi-based assembly (including HiFiSAM-style workflows), it is often necessary to evaluate multiple read combinations and configurations (e.g., HiFi-only vs. HiFi + ultra-long ONT, or different coverage/length subsets), because contiguity, repeat resolution, and polishing behavior can vary substantially with the input data. Instead of “copy-and-paste” pipelines, the recommended approach is to run controlled comparisons, evaluate assemblies with consistent metrics (contiguity, completeness, consensus quality, structural consistency), and select the strategy that best fits the genome and sequencing design. The same philosophy applies to mapping/anchoring and scaffolding: alignment rates and contact/map quality depend strongly on library properties and parameterization, so commands should be validated and tuned per dataset rather than treated as universal defaults.
 
