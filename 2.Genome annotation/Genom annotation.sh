@@ -3,6 +3,8 @@ BuildDatabase -engine ncbi -name model_genome genome.fa
 RepeatModeler -database model_genome -engine ncbi -threads 30 -LTRStruct
 RepeatMasker -a -no_is -norna -pa 30 -lib genome.libraries.fa -q genome.fa -gff
 
+Note: For TE annotation, use **full-length TE sequences** whenever possible; relying on fragmented or truncated TE consensuses can significantly degrade annotation accuracy and bias the final results.
+
 #RNA annotation
 hisat2 -p 16 -x hisat_genome.fa -1 read_1_clean.fq.gz -2 read_2_clean.fq.gz --un-conc-gz . --dta 2>sample.summary | samtools view -Sb - | samtools sort -o sample.sort.bam
 minimap2 --split-prefix --secondary=no -ax splice -uf -t 16 genome.fa isoseq.polished.hq.fa | samtools view -Sb - | samtools sort -o isoseq.sort.bam
