@@ -9,7 +9,7 @@ svmu $pre.flt.delta $ref $query h null $pre
 #SYRI
 syri -c $pre.flt.coords -r $ref -q $qry -d $pre.flt.delta
 
-Note: While `svmu` and `SyRI` are both supported here for SV discovery, we now generally recommend **svim-asm** as the default for assembly-based structural variant calling, due to better maintenance and more consistent performance across datasets.
+Note: While `svmu` and `SyRI` are both supported here for SV discovery, we now generally recommend **svim-asm** as the default for assembly-based structural variant calling.
 
 #Reads alignment
 
