@@ -20,8 +20,6 @@ for i in {1..2}; do
   meryl k=21 count output read$i.meryl sample.clean$i.fq.gz
 done
 
-
 meryl union-sum output read.meryl read*.meryl
-
 
 merqury.sh read.meryl genome.fa profix
